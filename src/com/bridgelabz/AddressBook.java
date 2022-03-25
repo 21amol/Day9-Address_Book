@@ -91,6 +91,26 @@ public class AddressBook {
         }
     }
 
+    public void deleteContact() {
+
+
+        System.out.println("Enter the first name");
+        String firstName = sc.next();
+
+        boolean isAvailable = false;
+        for (Contacts contacts : list) {
+            if (firstName.equalsIgnoreCase(contacts.getFirstName())) {
+                isAvailable = true;
+                list.remove(contacts);
+                System.out.println("Contact Deleted ");
+                break;
+            }
+            if (!isAvailable) {
+                System.out.println("Contact Number Not found ");
+            }
+        }
+    }
+
 }
 
 
