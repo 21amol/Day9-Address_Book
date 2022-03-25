@@ -13,18 +13,21 @@ public class AddressBookMain {
             Scanner scan = new Scanner(System.in);
 
             System.out.println("Welcome to Address Book Program");
-            System.out.println("Kindly Enter choice \n 1. Add new Contact \n 2. Show Contact details");
+            System.out.println("Kindly Enter choice \n 1. Add new Contact \n 2. Edit Contact details \n 3. Show Contact details");
             choice = scan.nextInt();
             switch (choice) {
                 case 1:
                     ab.addContacts();
                     break;
+
                 case 2:
-                    ab.showContacts();
+                    ab.editContacts();
+                    break;
+
                 case 3:
                     ab.showContacts();
                     break;
             }
-        }while (choice != 5);
+        }while (choice != 3);
     }
 }
