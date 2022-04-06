@@ -1,7 +1,5 @@
 package com.bridgelabz;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
 
 public class AddressBookMain {
@@ -9,25 +7,15 @@ public class AddressBookMain {
     static Scanner sc = new Scanner(System.in);
 
     //Using hashmap creating multiple Address book
-    static Map<String, AddressBook> addressBookMap = new HashMap<>();
-
-    public static void addNewAddressBook() {
-        System.out.println("Enter the Address Book Name :");
-        String addressbookName = sc.next();
-        if (addressBookMap.containsKey(addressbookName)) {
-            System.out.println("Entered AddressBook is Already Available");
-        } else {
-            AddressBook addressBook = new AddressBook();
-            addressBookMap.put(addressbookName, addressBook);
-        }
-
-    }
 
 
     public static void main(String[] args) {
-
-        int choice;
         AddressBook ab = new AddressBook();
+        ab.addNewAddressBook();
+        ab.addContacts();
+
+  /*      int choice;
+
         do {
 
             Scanner scan = new Scanner(System.in);
@@ -53,5 +41,6 @@ public class AddressBookMain {
                     break;
             }
         } while (choice != 3);
+    }    */
     }
 }
