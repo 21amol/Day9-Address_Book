@@ -11,12 +11,12 @@ public class AddressBookMain {
         AddressBook ab = new AddressBook();
         System.out.println("Welcome to Address Book Program");
         AddressBook.chooseoptionforcontact();
+        Scanner scan = new Scanner(System.in);
+        int choice = sc.nextInt();
+        while (choice <= 6) {
 
-        int choice;
-        do {
-            Scanner scan = new Scanner(System.in);
             System.out.println("Kindly Enter choice \n 1. Add New Address Book \n 2. Edit Address Book  \n 3. Display Address Book  \n 4. Delete Address book" +
-                    " \n 5. Search Person through City or State \n 6. Quit");
+                    " \n 5. Search Person through Name, City or State \n 6. Count contacts \n 7. Quit");
             choice = sc.nextInt();
             switch (choice) {
                 case 1:
@@ -35,10 +35,13 @@ public class AddressBookMain {
                     AddressBook.searchByOptions();
                     break;
                 case 6:
+                    AddressBook.countByOption();
+                    break;
+                case 7:
                     System.out.println("Thank you.");
                     break;
             }
-        } while (choice != 7);
 
+        }
     }
 }
