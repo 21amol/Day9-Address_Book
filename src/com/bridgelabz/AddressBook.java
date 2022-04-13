@@ -1,6 +1,7 @@
 package com.bridgelabz;
 
 import java.util.*;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 
@@ -67,17 +68,17 @@ public class AddressBook {
         switch (choice) {
             case 1:
                 System.out.println("Enter name: ");
-                String name = sc.nextLine();
+                String name = sc.next();
                 list.forEach(book -> searchByName(name).forEach(System.out::println));
                 break;
             case 2:
                 System.out.println("Enter city: ");
-                String city = sc.nextLine();
+                String city = sc.next();
                 list.forEach(book -> searchByCity(city).forEach(System.out::println));
                 break;
             case 3:
                 System.out.println("Enter state: ");
-                String state = sc.nextLine();
+                String state = sc.next();
                 list.forEach(book -> searchByState(state).forEach(System.out::println));
                 break;
             default:
@@ -92,6 +93,24 @@ public class AddressBook {
 
     public static void viewByState(Map<String, Contacts> stateHashMap) {
         stateHashMap.entrySet().stream().forEach(e -> System.out.println(e.getKey() + "=" + e.getValue().toString()));
+    }
+
+
+    public static List<Contacts> sortBy(Function<? super Contacts, ? extends String> key) {
+        return list.stream().sorted(Comparator.comparing(key)).collect(Collectors.toList());
+    }
+
+
+    // for showing output details
+    @Override
+    public String toString() {
+        if (list.isEmpty())
+            return "No contacts found!";
+        String result = new String();
+        for (int i = 0; i < list.size(); i++) {
+            result += " " + list.get(i);
+        }
+        return result;
     }
 
 
@@ -307,6 +326,32 @@ public class AddressBook {
             }
         } while (choice != 5);
     }
+
+
+    public static void sortByOption() {
+        System.out.println("Choose how you want to sort 1. first name 2. last name 3.city 4.state 5.zip");
+        int choice = sc.nextInt();
+        switch (choice) {
+            case 1:
+                AddressBook.sortBy(Contacts::getFirstName).forEach(System.out::println);
+                break;
+            case 2:
+                AddressBook.sortBy(Contacts::getLastName).forEach(System.out::println);
+                break;
+            case 3:
+                AddressBook.sortBy(Contacts::getCity).forEach(System.out::println);
+                break;
+            case 4:
+                AddressBook.sortBy(Contacts::getState).forEach(System.out::println);
+                break;
+            case 5:
+                AddressBook.sortBy(Contacts::getZip).forEach(System.out::println);
+                break;
+            default:
+                System.out.println("Please enter a valid choice");
+        }
+    }
+
 
 }
 
