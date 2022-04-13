@@ -51,27 +51,33 @@ public class Contacts {
         return lastName;
     }
 
-    public String getAddress() {
+    public String getAddress()
+    {
         return address;
     }
 
-    public String getCity() {
+    public String getCity()
+    {
         return city;
     }
 
     public String getZip() {
+
         return zip;
     }
 
     public String getState() {
+
         return state;
     }
 
     public String getPhoneNumber() {
+
         return phoneNumber;
     }
 
     public String getEmail() {
+
         return email;
     }
 }
