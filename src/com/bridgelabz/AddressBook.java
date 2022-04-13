@@ -351,8 +351,6 @@ public class AddressBook {
                 System.out.println("Please enter a valid choice");
         }
     }
-
-
 }
 
 
